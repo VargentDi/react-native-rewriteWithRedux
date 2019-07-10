@@ -44,7 +44,7 @@ export default class DetailsScreen extends React.Component {
                 <TextInput style={styles.textInput} placeholder="Search Your memory location" value={this.state.textInput} onChangeText={(value)=>{this.setState({textInput:value})}} onEndEditing={()=>{this.setState({showMap:true})}}></TextInput>
             </View>
             <View style={styles.contentConatiner}>
-            {this.state.showMap&&<Maps />}
+            <Maps />
             </View>
             <View style={styles.header}>
                 <Text style={styles.headerText}>The Placer you have visited</Text>
@@ -78,6 +78,6 @@ const styles=StyleSheet.create({
         width:'50%'
     },
     contentConatiner:{
-        height:410,
+        height:210,
     }
 })

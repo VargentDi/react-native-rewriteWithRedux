@@ -3,6 +3,8 @@ import { registerRootComponent, AppLoading } from 'expo';
 
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import {Font} from 'expo';
+import {connect} from 'react-redux';
+import {addPlace,deletePlace,selectPlace,deselectPlace} from './store/actions/index'
 import {
     SafeAreaView,
     StyleSheet,
@@ -13,14 +15,15 @@ import {
     TouchableOpacity,
     StatusBar,
 } from 'react-native';
-import {Provider} from 'react-redux';
-import configureStore from '../src/store/configureStore';
+
 
 
 import MainPageScreen from './MainPageScreen';
 
 import HomeScreen from './HomeScreen'
 import PhotoPage from './PhotoAlbum';
+
+
 const RootStack = createStackNavigator(
     {
         Home: HomeScreen,
@@ -45,7 +48,7 @@ const RootStack = createStackNavigator(
 
 const AppContainer = createAppContainer(RootStack);
 
-export default class App extends React.Component {
+ class App extends React.Component {
     state={
         fontLoaded:false
     }
@@ -62,10 +65,10 @@ export default class App extends React.Component {
         if(!this.state.fontLoaded){
             return <AppLoading />
         }
-        return <AppContainer />;
+        return (
+        <AppContainer />);
     }
 }
-
 
 
 registerRootComponent(App);

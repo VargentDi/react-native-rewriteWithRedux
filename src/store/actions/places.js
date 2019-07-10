@@ -15,7 +15,7 @@ export const deletePlace=()=>{
 export const selectPlace=(list)=>{
     return{
         type:SELECT_PLACE,
-        selectPlace:list
+        selectedPlace:list
     }
 }
 
